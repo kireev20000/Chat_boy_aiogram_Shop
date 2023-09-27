@@ -7,9 +7,11 @@ from logging import basicConfig, INFO
 from data.config import ADMINS
 from loader import dp, db, bot
 
+import handlers
+
 
 user_message = 'Пользователь'
-admin_message = 'Администратор'
+admin_message = 'Админ'
 
 
 @dp.message_handler(commands='start')
