@@ -240,16 +240,12 @@ async def process_confirm_back(message: Message, state: FSMContext):
                     state=ProductState.image)
 async def process_image_url(message: Message, state: FSMContext):
     if message.text == back_message:
-
         await ProductState.body.set()
 
         async with state.proxy() as data:
-
             await message.answer(f"Изменить описание с <b>{data['body']}</b>?",
                                  reply_markup=back_markup())
-
     else:
-
         await message.answer('Вам нужно прислать фото товара.')
 
 
@@ -257,16 +253,11 @@ async def process_image_url(message: Message, state: FSMContext):
                     state=ProductState.price)
 async def process_price_invalid(message: Message, state: FSMContext):
     if message.text == back_message:
-
         await ProductState.image.set()
-
         async with state.proxy() as data:
-
             await message.answer("Другое изображение?",
                                  reply_markup=back_markup())
-
     else:
-
         await message.answer('Укажите цену в виде числа!')
 
 

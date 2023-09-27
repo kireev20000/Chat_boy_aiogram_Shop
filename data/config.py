@@ -1,4 +1,10 @@
-BOT_TOKEN = '6432342732:AAFuHJH2-acnZD5wpgjubGDSAsWV_aNVnE8'
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 #Список Админов ID
 ADMINS = []
