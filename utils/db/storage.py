@@ -5,6 +5,7 @@ class DatabaseManager:
 
     def __init__(self, path):
         self.conn = connect(path)
+        # FK are deactivated by default SQLite включать при каждой соединении
         self.conn.execute('pragma foreign_keys = on')
         self.conn.commit()
         self.cur = self.conn.cursor()
