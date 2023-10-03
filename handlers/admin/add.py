@@ -73,8 +73,8 @@ async def category_callback_handler(query: CallbackQuery, callback_data: dict,
     await show_products(query.message, products, category_idx)
 
 
-async def show_products(m, products, category_idx):
-    await bot.send_chat_action(m.chat.id, ChatActions.TYPING)
+async def show_products(message, products, category_idx):
+    await bot.send_chat_action(message.chat.id, ChatActions.TYPING)
 
     for idx, title, body, image, price, tag in products:
         text = f'<b>{title}</b>\n\n{body}\n\nЦена: {price} рублей.'
@@ -84,7 +84,7 @@ async def show_products(m, products, category_idx):
             '🗑️ Удалить',
             callback_data=product_cb.new(id=idx, action='delete')))
 
-        await m.answer_photo(photo=image,
+        await message.answer_photo(photo=image,
                              caption=text,
                              reply_markup=markup)
 
@@ -92,7 +92,7 @@ async def show_products(m, products, category_idx):
     markup.add(add_product)
     markup.add(delete_category)
 
-    await m.answer('Хотите что-нибудь добавить или удалить?',
+    await message.answer('Хотите что-нибудь добавить или удалить?',
                    reply_markup=markup)
 
 
