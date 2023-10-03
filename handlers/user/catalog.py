@@ -34,7 +34,7 @@ async def show_products(m, products):
 
     if len(products) == 0:
 
-        await m.answer('Здесь ничего нет 😢')
+        await m.answer('Здесь ничего нет!')
 
     else:
 
