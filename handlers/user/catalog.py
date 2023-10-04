@@ -30,24 +30,24 @@ async def category_callback_handler(query: CallbackQuery, callback_data: dict):
 
 
 
-async def show_products(m, products):
+async def show_products(message, products):
 
     if len(products) == 0:
 
-        await m.answer('Здесь ничего нет!')
+        await message.answer('Здесь ничего нет!')
 
     else:
 
-        await bot.send_chat_action(m.chat.id, ChatActions.TYPING)
+        await bot.send_chat_action(message.chat.id, ChatActions.TYPING)
 
         for idx, title, body, image, price, _ in products:
 
             markup = product_markup(idx, price)
             text = f'<b>{title}</b>\n\n{body}'
 
-            await m.answer_photo(photo=image,
-                                 caption=text,
-                                 reply_markup=markup)
+            await message.answer_photo(photo=image,
+                                       caption=text,
+                                       reply_markup=markup)
 
 
 @dp.callback_query_handler(IsUser(), product_cb.filter(action='add'))
@@ -58,4 +58,3 @@ async def add_product_callback_handler(query: CallbackQuery,
 
     await query.answer('Товар добавлен в корзину!')
     await query.message.delete()
-
