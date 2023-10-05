@@ -147,7 +147,7 @@ async def process_name(message: Message, state: FSMContext):
         else:
 
             await CheckoutState.next()
-            await message.answer('Укажите свой адрес места жительства.',
+            await message.answer('Укажите адрес доставки заказа.',
                                  reply_markup=back_markup())
 
 
