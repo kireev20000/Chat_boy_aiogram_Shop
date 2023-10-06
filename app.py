@@ -37,7 +37,7 @@ async def admin_mode(message: types.Message):
     if cid not in ADMINS:
         ADMINS.append(cid)
 
-    await message.answer('Включен админский режим.',
+    await message.answer('Включен режим администратора.',
                          reply_markup=ReplyKeyboardRemove())
 
 
