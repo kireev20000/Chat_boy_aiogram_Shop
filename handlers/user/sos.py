@@ -1,10 +1,14 @@
 from aiogram.dispatcher import FSMContext
-from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
-from keyboards.default.markups import all_right_message, cancel_message, submit_markup
-from aiogram.types import Message
-from states import SosState
+from aiogram.types import Message, ReplyKeyboardMarkup, ReplyKeyboardRemove
+
 from filters import IsUser
-from loader import dp, db
+from keyboards.default.markups import (
+	all_right_message,
+	cancel_message,
+	submit_markup,
+)
+from loader import db, dp
+from states import SosState
 
 
 @dp.message_handler(commands='sos')
@@ -12,7 +16,7 @@ async def cmd_sos(message: Message):
     await SosState.question.set()
     await message.answer(
         'В чем суть проблемы? Опишите как можно детальнее'
-        ' и администратор обязательно вам ответит.',
+        ' и администратор обязательно вам ответит!',
         reply_markup=ReplyKeyboardRemove())
 
 

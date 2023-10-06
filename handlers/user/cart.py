@@ -1,17 +1,23 @@
-from filters import IsUser
-from aiogram.types import Message
-from aiogram.dispatcher import FSMContext
-from aiogram.types.chat import ChatActions
-from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
-from aiogram.types import CallbackQuery
 import logging
 
-from loader import db, dp, bot
-from .menu import cart
+from aiogram.dispatcher import FSMContext
+from aiogram.types import (
+	CallbackQuery,
+	Message,
+	ReplyKeyboardMarkup,
+	ReplyKeyboardRemove,
+)
+from aiogram.types.chat import ChatActions
+
+from filters import IsUser
+from keyboards.default.markups import *
 from keyboards.inline.products_from_cart import product_markup
 from keyboards.inline.products_from_catalog import product_cb
+from loader import bot, db, dp
 from states import CheckoutState
-from keyboards.default.markups import *
+
+from .menu import cart
+
 
 @dp.message_handler(IsUser(), text=cart)
 async def process_cart(message: Message, state: FSMContext):

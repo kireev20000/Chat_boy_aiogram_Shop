@@ -1,7 +1,9 @@
 from aiogram.types import Message
-from loader import dp, db
-from .menu import delivery_status
+
 from filters import IsUser
+from loader import db, dp
+
+from .menu import delivery_status
 
 
 @dp.message_handler(IsUser(), text=delivery_status)

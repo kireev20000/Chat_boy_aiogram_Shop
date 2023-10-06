@@ -1,19 +1,23 @@
-from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.utils.callback_data import CallbackData
-from aiogram.types import CallbackQuery
 from hashlib import md5
-from aiogram.dispatcher import FSMContext
-from aiogram.types.chat import ChatActions
-from aiogram.types import ReplyKeyboardMarkup
-from aiogram.types import ReplyKeyboardRemove
-from aiogram.types import ContentType
 
-from handlers.user.menu import settings
-from states import CategoryState, ProductState
-from loader import bot
-from loader import dp, db
+from aiogram.dispatcher import FSMContext
+from aiogram.types import (
+	CallbackQuery,
+	ContentType,
+	InlineKeyboardButton,
+	InlineKeyboardMarkup,
+	Message,
+	ReplyKeyboardMarkup,
+	ReplyKeyboardRemove,
+)
+from aiogram.types.chat import ChatActions
+from aiogram.utils.callback_data import CallbackData
+
 from filters import IsAdmin
+from handlers.user.menu import settings
 from keyboards.default.markups import *
+from loader import bot, db, dp
+from states import CategoryState, ProductState
 
 
 category_cb = CallbackData('category', 'id', 'action')

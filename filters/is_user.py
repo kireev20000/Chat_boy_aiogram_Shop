@@ -1,5 +1,6 @@
-from aiogram.types import Message
 from aiogram.dispatcher.filters import BoundFilter
+from aiogram.types import Message
+
 from data.config import ADMINS
 
 

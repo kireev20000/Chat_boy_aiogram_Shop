@@ -1,15 +1,24 @@
-from handlers.user.menu import questions
 from aiogram.dispatcher import FSMContext
-from aiogram.utils.callback_data import CallbackData
-from keyboards.default.markups import all_right_message, cancel_message, \
-    submit_markup
-from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, \
-    InlineKeyboardButton, ReplyKeyboardRemove
+from aiogram.types import (
+	CallbackQuery,
+	InlineKeyboardButton,
+	InlineKeyboardMarkup,
+	Message,
+	ReplyKeyboardRemove,
+)
 from aiogram.types.chat import ChatActions
+from aiogram.utils.callback_data import CallbackData
 
-from loader import dp, db, bot
 from filters import IsAdmin
+from handlers.user.menu import questions
+from keyboards.default.markups import (
+	all_right_message,
+	cancel_message,
+	submit_markup,
+)
+from loader import bot, db, dp
 from states import AnswerState
+
 
 question_cb = CallbackData('question', 'cid', 'action')
 

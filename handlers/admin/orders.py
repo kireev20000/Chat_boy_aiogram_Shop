@@ -1,7 +1,8 @@
 from aiogram.types import Message
-from loader import dp, db
-from handlers.user.menu import orders
+
 from filters import IsAdmin
+from handlers.user.menu import orders
+from loader import db, dp
 
 
 @dp.message_handler(IsAdmin(), text=orders)

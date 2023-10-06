@@ -1,14 +1,12 @@
-from filters import IsUser
-from aiogram.types import Message
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, Message
 from aiogram.types.chat import ChatActions
 
-from keyboards.inline.categories import categories_markup
+from filters import IsUser
+from keyboards.inline.categories import categories_markup, category_cb
+from keyboards.inline.products_from_catalog import product_cb, product_markup
+from loader import bot, db, dp
+
 from .menu import catalog
-from loader import dp, db, bot
-from keyboards.inline.categories import category_cb
-from keyboards.inline.products_from_catalog import product_markup
-from keyboards.inline.products_from_catalog import product_cb
 
 
 @dp.message_handler(IsUser(), text=catalog)

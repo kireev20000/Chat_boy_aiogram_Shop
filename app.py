@@ -1,13 +1,12 @@
-from aiogram import types
-from aiogram.types import ReplyKeyboardMarkup
-from aiogram.types import ReplyKeyboardRemove
-from aiogram import executor
-from logging import basicConfig, INFO
+from logging import INFO, basicConfig
 
-from data.config import ADMINS
-from loader import dp, db, bot
+from aiogram import executor, types
+from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 import handlers
+
+from data.config import ADMINS
+from loader import bot, db, dp
 
 
 user_message = 'Пользователь'
