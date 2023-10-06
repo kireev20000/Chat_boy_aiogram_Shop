@@ -46,5 +46,3 @@ BOT_TOKEN='токен_бота'
 Python-разработчик (Backend)  
 E-mail: kireev20000@yandex.ru
 Telegram: @kireev20000
-
-# Инструкция по запуску
